@@ -1,0 +1,2 @@
+The 'scripts' package should contain runnable test scenarios.
+In other words, they should all have a main() method.

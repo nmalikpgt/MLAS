@@ -1,0 +1,345 @@
+package com.pacificgeotech.epermitTestFramework.scripts;
+
+import java.io.File;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
+
+import junit.framework.Assert;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.google.common.base.Function;
+import com.google.common.base.Predicate;
+import com.pacificgeotech.epermitTestFramework.core.CommonUtils;
+import com.pacificgeotech.epermitTestFramework.core.WaitTool;
+import com.pacificgeotech.epermitTestFramework.core.WebDriverManager;
+
+public class GE101001 {
+	@Test
+	public void test() throws Exception {
+	final WebDriver driver = WebDriverManager.getDriver();
+	WebDriverWait driverWait = WebDriverManager.getDriverWait();
+	WebElement element = WebDriverManager.getElement();
+	List<WebElement> elements = WebDriverManager.getElements();
+	//driver.manage().timeouts().implicitlyWait(WaitTool.DEFAULT_WAIT_4_PAGE, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+	
+	//login
+    CommonUtils.login();
+
+   
+    //add login details 
+    /*element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("loginUsernameInTxtId")));
+    element.click(); 
+    element.sendKeys("admin");
+    element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("loginPasswordInTxtId")));
+    element.click(); 
+    element.sendKeys("admin");*/
+    
+    //Thread.sleep(4000);
+    //click log in
+    //element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("submitCmdBtnId")));
+    //element.click();
+    
+
+	//long t1 = Calendar.getInstance().getTimeInMillis();        
+    //Creating Application
+	//element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("appFrmId:createAppBtnId")));
+	//element.click();
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.findElement(By.id("appFrmId:createAppBtnId")).click();
+    
+    
+	//click "New OGAA"
+	//element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='appFrmId:applicationTypeSlctTxtId']/ul/li")));
+	//element.click();
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.findElement(By.xpath("//div[@id='appFrmId:applicationTypeSlctTxtId']/ul/li")).click();
+	
+
+//long t2 = Calendar.getInstance().getTimeInMillis();
+	//click "Geophysical"
+	//element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='appFrmId:activityTypeSlctTxtId']/ul/li[8]")));
+	//element.click();
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.findElement(By.xpath("//div[@id='appFrmId:activityTypeSlctTxtId']/ul/li[8]")).click();
+	
+	//System.out.println(t2 - t1);
+	
+	//click "Next"
+	//element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("nextButton")));
+    //element.click();
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.findElement(By.className("nextButton")).click();
+
+    
+			/*//type File Number
+      element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("ui-inputfield")));
+      element.sendKeys("123");
+    
+      	Thread.sleep(4000);
+      	//click Next
+      element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("nextButton")));
+      element.click();*/
+
+      // enter proponent
+      //element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("ui-autocomplete-input")));
+      //element.sendKeys("encana");
+      //element.click();
+      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+  	  element = driver.findElement(By.className("ui-autocomplete-input"));
+  	  element.sendKeys("encana");
+  	  element.click();
+
+  		//click Proponent from selection
+      //element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("ui-autocomplete-item")));
+      //element.click();
+      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+  	  driver.findElement(By.className("ui-autocomplete-item")).click();
+	
+      	//click Next 
+		//element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("nextButton")));
+        //element.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	  driver.findElement(By.className("nextButton")).click();
+        
+        //type Text
+        /*element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("ui-inputtextarea")));
+        element.sendKeys("done with selenium 2.0");*/
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	  element = driver.findElement(By.className("ui-inputtextarea"));
+    	  element.sendKeys("done with selenium 2.0");
+    	  element.click();
+        
+		
+        //Tick Accept 
+		//element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='appFrmId:agreeSlctBoxId']/div[2]")));
+		//element.click();
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+   	  driver.findElement(By.xpath("//div[@id='appFrmId:agreeSlctBoxId']/div[2]")).click();
+		
+		 //WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState>=2 && xmlhttp.status=200)", 60);
+		//Thread.sleep(4000);
+		//click Next
+		/*element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("nextButton")));
+        element.click();*/
+   	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.findElement(By.className("nextButton")).click();
+        //WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState>=2 && xmlhttp.status=200)", 60);
+        //Thread.sleep(4000);
+        //Shapefiles Projection 
+        //element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("appFrmId:uploadedShapefilesProjectionSomId")));
+        //element.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+     	  driver.findElement(By.id("appFrmId:uploadedShapefilesProjectionSomId")).click();
+        
+        //WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState>=2 && xmlhttp.status=200)", 60);
+        //Thread.sleep(4000);
+        //Choose NAD 83
+        //element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='appFrmId:uploadedShapefilesProjectionSomId_panel']/div/ul/li[5]")));
+		//element.click();
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	  driver.findElement(By.xpath("//div[@id='appFrmId:uploadedShapefilesProjectionSomId_panel']/div/ul/li[5]")).click();
+        
+		
+		//Click upload shapefile 
+		//element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("appFrmId:usdUploadShapefilesBtnId")));
+		//element.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+  	  driver.findElement(By.id("appFrmId:usdUploadShapefilesBtnId")).click();
+		
+		//Click Choose
+		
+		File file = null;
+
+		try {
+		    file = new File(WE101001.class.getClassLoader().getResource("ge101001.zip").toURI());
+		} catch (URISyntaxException e) {
+		    e.printStackTrace();
+		}
+
+		Assert.assertTrue(file.exists());
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebElement browseButton = driver.findElement(By.id("appFrmId:uploadedShapefilesId_input"));
+		browseButton.sendKeys(file.getAbsolutePath());      
+		
+		 //WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState>=2 && xmlhttp.status=200)", 60);
+		Thread.sleep(4000);
+		//Click upload
+		//element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.className("ui-fileupload-upload")));
+		//element.click();
+		FluentWait<By> fluentWait = new FluentWait<By>( By.className("ui-fileupload-upload"));
+        fluentWait.pollingEvery(100, TimeUnit.MILLISECONDS);
+        fluentWait.withTimeout(10000, TimeUnit.MILLISECONDS);
+        fluentWait.until(new Predicate<By>() {
+            public boolean apply(By by) {
+                try {
+                	System.out.println("wati2 ..." + driver.findElement(by).isDisplayed());
+                    return driver.findElement(by).isDisplayed();
+                } catch (NoSuchElementException ex) {
+                	ex.printStackTrace();
+                    return false;
+                }
+                catch (Exception ex) {
+                	ex.printStackTrace();
+                    return false;
+                }
+                catch (Throwable ex) {
+                	ex.printStackTrace();
+                    return false;
+                }
+            }
+        });
+        System.out.println("wait done ..." + driver.findElement(By.className("ui-fileupload-upload")));
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//fluentWait(driver, By.className("ui-fileupload-upload")).click();
+		   driver.findElement(By.className("ui-fileupload-upload")).click();
+	        //WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState>=2 && xmlhttp.status=200)", 60);
+		
+	        //WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState>=2 && xmlhttp.status=200)", 60);
+		Thread.sleep(4000);
+		// Click OK
+        //Thread.sleep(500);
+			
+        //elements = driverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("ui-button-text")));
+        //WebElement okButton = elements.get(elements.size()-1);
+        //okButton.click();
+
+        /*driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		elements = driver.findElements(By.className("ui-button-text"));
+		WebElement okButton = elements.get(elements.size()-1);
+		okButton.click();*/
+			fluentWait = new FluentWait<By>( By.id("appFrmId:ok1BtnId"));
+	        fluentWait.pollingEvery(100, TimeUnit.MILLISECONDS);
+	        fluentWait.withTimeout(30000, TimeUnit.MILLISECONDS);
+	         
+	        fluentWait.until(new Predicate<By>() {
+	            public boolean apply(By by) {
+	                try {
+	                	System.out.println("wait... ");
+	                    List<WebElement> elements = driver.findElements(by);
+	                    for (WebElement element : elements) {
+	                    	if (!element.isDisplayed()) {
+	                    		return false;
+	                    	}
+	                    }
+	                    return true;
+	                    
+	                } catch (NoSuchElementException ex) {
+	                    return false;
+	                }
+	            }
+	        });
+	        
+	        elements = driver.findElements(By.id("appFrmId:ok1BtnId"));
+			WebElement okButton = elements.get(elements.size()-1);
+			okButton.click();
+			
+		//	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//elements = fluentWait2(driver, By.className("ui-button-text"));
+		//System.out.println("elements: " + elements);
+		//elements.get(elements.size()-1).click();
+		
+        
+        //WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState>=2 && xmlhttp.status=200)", 60);
+        //Thread.sleep(4000);
+        //Click Save 
+        //element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("appFrmId:topsaveBtnId")));
+		//element.click();
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.findElement(By.id("appFrmId:topsaveBtnId")).click();
+		fluentWait(driver, By.id("appFrmId:topsaveBtnId")).click();
+		
+		//WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState>=2 && xmlhttp.status=200)", 60);
+		//w(driver);
+		
+		//Thread.sleep(20000);
+		
+		//Click Map viewer
+		//element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("appFrmId:j_idt73")));
+		//element.click();
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.findElement(By.id("appFrmId:j_idt73")).click();
+		fluentWait(driver, By.id("appFrmId:j_idt73")).click();
+		
+	}
+
+	private void w(WebDriver driver) {
+		WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState>=2 && xmlhttp.status=200)", 60);
+	}
+
+	public WebElement fluentWait(final WebDriver driver, final By locator) {
+		
+		for (int i = 1; i <= 1000; i++) {
+			System.out.println("Iteration #" + i);
+			try {	
+	        	System.out.println("wait");
+			    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+			            .withTimeout(30, TimeUnit.SECONDS)
+			            .pollingEvery(5, TimeUnit.SECONDS)
+			            .ignoring(NoSuchElementException.class);
+		
+			    WebElement element = wait.until(new Function<WebDriver, WebElement>() {
+			        public WebElement apply(WebDriver driver) {
+			        	System.out.println("apply");
+			            return driver.findElement(locator);
+			        }
+			    });
+			    
+			    return element;
+
+			}
+			catch (WebDriverException e) {
+				e.printStackTrace();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		}//for
+		
+		throw new WebDriverException("Element located by " + locator + " not found"); 
+		
+	};
+
+	public List<WebElement> fluentWait2(final WebDriver driver, final By locator) {
+		
+		for (int i = 1; i <= 1000; i++) {
+			System.out.println("Iteration2 #" + i);
+			try {	
+	        	System.out.println("wait2");
+			    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+			            .withTimeout(30, TimeUnit.SECONDS)
+			            .pollingEvery(5, TimeUnit.SECONDS)
+			            .ignoring(NoSuchElementException.class);
+		
+			    List<WebElement> elements = wait.until(new Function<WebDriver, List<WebElement>>() {
+			        public List<WebElement> apply(WebDriver driver) {
+			        	System.out.println("apply2");
+			            return driver.findElements(locator);
+			        }
+			    });
+			    
+			    return elements;
+
+			}
+			catch (WebDriverException e) {
+				e.printStackTrace();
+			}
+		}//for
+		
+		throw new WebDriverException("Element located by " + locator + " not found"); 
+		
+	};
+	
+}

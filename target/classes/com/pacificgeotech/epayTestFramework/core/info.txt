@@ -1,0 +1,2 @@
+The 'core' package contains generic methods used throughout the framework.
+Aside from Config.java, these should not be changed very often.

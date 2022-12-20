@@ -1,0 +1,9 @@
+<suite name="E2E Cases">
+    <test name="Test Cases">
+        <classes>
+            <class name="com.pacificgeotech.epayTestFramework.E2E_TestCases.RegisterClient">
+
+            </class>>
+        </classes>>
+    </test>>
+</suite>

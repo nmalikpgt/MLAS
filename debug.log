@@ -1,0 +1,6 @@
+[0525/012330.267:ERROR:process_info.cc(625)] range at 0x8d0d34d600000000, size 0x1d9 fully unreadable
+[0525/012330.271:ERROR:process_info.cc(625)] range at 0x8d0d353a00000000, size 0x1d9 fully unreadable
+[0525/012330.271:ERROR:process_info.cc(625)] range at 0x0, size 0x1d9 fully unreadable
+[0525/012330.408:ERROR:process_info.cc(373)] UncheckedAllocate
+[0302/034715.584:ERROR:process_info.cc(396)] NtQuerySystemInformation SystemExtendedHandleInformation: The specified information record length does not match the length required for the specified information class. (0xc0000004)
+[0403/034826.329:ERROR:process_info.cc(396)] NtQuerySystemInformation SystemExtendedHandleInformation: The specified information record length does not match the length required for the specified information class. (0xc0000004)
